@@ -72,7 +72,7 @@ class AuthorController  {
 
       const items = await DB.Author.findById(req.body.id);
 
-      items.coverUrl = req.body.coverUrl
+      items.photoUrl = req.body.photoUrl
 
       await items.save()
 
