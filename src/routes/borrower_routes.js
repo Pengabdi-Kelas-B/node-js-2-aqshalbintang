@@ -1,10 +1,12 @@
-const express = require("express");
-const BorrowerController = require("../controllers/borrower_controller");
+const express = require("express")
+const BorrowerController = require("../controllers/borrower_controller")
 
-const borrowingRouter = express.Router();
+const borrowerRouter = express.Router()
 
-borrowingRouter.post("/borrow/book", BorrowerController.add);
-borrowingRouter.get("/borrow/book/list", BorrowerController.list);
-borrowingRouter.post("/borrow/book/return", BorrowerController.return);
+borrowerRouter.get("/borrowers", BorrowerController.getAll)
+borrowerRouter.get("/borrower/:id", BorrowerController.getById)
+borrowerRouter.post("/borrower", BorrowerController.create)
+borrowerRouter.put("/borrower/:id", BorrowerController.update)
+borrowerRouter.delete("/borrower/:id", BorrowerController.delete)
 
-module.exports = borrowingRouter;
+module.exports = borrowerRouter
